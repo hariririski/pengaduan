@@ -7,6 +7,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+        b {
+          font-weight: bold;
+          }
         @media all {
           .page-break { display: none; }
           }
@@ -24,7 +27,7 @@
         }
         </style>
         <script>
-        //window.print()
+        window.print()
         </script>
 
     </head>
@@ -127,36 +130,50 @@
                                           <td >&nbsp;</td>
                                           <td >&nbsp;</td>
                                     </tr>
-                                      <?php
-                                      if(!empty($detail->nama_bukti1)){
-                                        echo '<tr>';
-                                        echo '<td></td>';
-                                        echo '<td>';
-                                        echo '<td>a. </td>';
-                                        echo '<td>'.$detail->nama_bukti1.'</td>';
-                                      }else{
-                                        echo '<tr>';
-                                        echo '<td></td>';
-                                        echo '<td>';
-                                        echo '<td>a. </td>';
-                                        echo '<td>.............................</td>';
-                                      }
-                                      if(!empty($detail->nama_bukti2)){
-                                        echo '<tr>';
-                                        echo '<td></td>';
-                                        echo '<td>';
-                                        echo '<td>a. </td>';
-                                        echo '<td>'.$detail->nama_bukti2.'</td>';
-                                      }
-                                      if(!empty($detail->nama_bukti3)){
-                                        echo '<tr>';
-                                        echo '<td></td>';
-                                        echo '<td>';
-                                        echo '<td>a. </td>';
-                                        echo '<td>'.$detail->nama_bukti3.'</td>';
-                                      }
-                                      ?>
+                                    <?php
+                                    if(!empty($detail->nama_bukti1)){
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>a. </td>';
+                                      echo '<td>'.$detail->nama_bukti1.'</td>';
+                                    }else{
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>a. </td>';
+                                      echo '<td>.............................</td>';
+                                    }
+                                    if(!empty($detail->nama_bukti2)){
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>b. </td>';
+                                      echo '<td>'.$detail->nama_bukti2.'</td>';
+                                    }
+                                    if(!empty($detail->nama_bukti3)){
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>c. </td>';
+                                      echo '<td>'.$detail->nama_bukti3.'</td>';
+                                    }
+                                    if(!empty($detail->nama_bukti4)){
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>d. </td>';
+                                      echo '<td>'.$detail->nama_bukti4.'</td>';
+                                    }
+                                    if(!empty($detail->nama_bukti5)){
+                                      echo '<tr>';
+                                      echo '<td></td>';
+                                      echo '<td>';
+                                      echo '<td>e. </td>';
+                                      echo '<td>'.$detail->nama_bukti5.'</td>';
+                                    }
 
+                                    ?>
 
                                     </tr>
 
@@ -241,21 +258,31 @@
                                            }
                                             ?>
                                           <table height="100px">
-                                           <?php
-                                           foreach($jenis_pengaduan as $pengaduan){
-                                            echo '<tr>';
-                                              echo '<td style="vertical-align:top">';
-                                                echo $huruf[$j];
-                                                echo ". ";
-                                              echo "</td>";
-                                              echo '<td style="vertical-align:top">';
-                                                echo $pengaduan->nama_jenis_pengaduan;
-                                              echo "</td>";
-                                              echo "</td>";
-                                            echo "</tr>";
-                                            $j++;
-                                            }
-                                            ?>
+                                            <?php
+                                            foreach($jenis_pengaduan as $pengaduan){
+                                             echo '<tr>';
+                                               echo '<td style="vertical-align:top">';
+                                               if($pengaduan->id_jenis_pengaduan==$detail->id_jenis_pengaduan){
+                                                 echo "<b><u>".$huruf[$j]."</u></b>";
+                                                  echo "<b><u>. </u></b>";
+                                               }else{
+                                                 echo $huruf[$j];
+                                                 echo ". ";
+                                               }
+
+                                               echo "</td>";
+                                               echo '<td style="vertical-align:top">';
+                                               if($pengaduan->id_jenis_pengaduan==$detail->id_jenis_pengaduan){
+                                                 echo "<b><u>".$pengaduan->nama_jenis_pengaduan."</u></b>";
+                                               }else{
+                                                 echo $pengaduan->nama_jenis_pengaduan;
+                                               }
+                                               echo "</td>";
+                                               echo "</td>";
+                                             echo "</tr>";
+                                             $j++;
+                                             }
+                                             ?>
                                           </table>
                                       </td>
 

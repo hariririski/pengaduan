@@ -51,6 +51,9 @@
 
 
         <style>
+                      b {
+              font-weight: bold;
+              }
               body{ margin:0px; padding:0px; font-family:helvetica; background:url(image.png); }
 
               #wrapper{ text-align:center; margin:70px auto; }
@@ -231,16 +234,31 @@
                                         echo '<tr>';
                                         echo '<td></td>';
                                         echo '<td>';
-                                        echo '<td>a. </td>';
+                                        echo '<td>b. </td>';
                                         echo '<td>'.$detail->nama_bukti2.'</td>';
                                       }
                                       if(!empty($detail->nama_bukti3)){
                                         echo '<tr>';
                                         echo '<td></td>';
                                         echo '<td>';
-                                        echo '<td>a. </td>';
+                                        echo '<td>c. </td>';
                                         echo '<td>'.$detail->nama_bukti3.'</td>';
                                       }
+                                      if(!empty($detail->nama_bukti4)){
+                                        echo '<tr>';
+                                        echo '<td></td>';
+                                        echo '<td>';
+                                        echo '<td>d. </td>';
+                                        echo '<td>'.$detail->nama_bukti4.'</td>';
+                                      }
+                                      if(!empty($detail->nama_bukti5)){
+                                        echo '<tr>';
+                                        echo '<td></td>';
+                                        echo '<td>';
+                                        echo '<td>e. </td>';
+                                        echo '<td>'.$detail->nama_bukti5.'</td>';
+                                      }
+
                                       ?>
 
 
@@ -328,21 +346,31 @@
                                            }
                                             ?>
                                           <table height="100px">
-                                           <?php
-                                           foreach($jenis_pengaduan as $pengaduan){
-                                            echo '<tr>';
-                                              echo '<td style="vertical-align:top">';
-                                                echo $huruf[$j];
-                                                echo ". ";
-                                              echo "</td>";
-                                              echo '<td style="vertical-align:top">';
-                                                echo $pengaduan->nama_jenis_pengaduan;
-                                              echo "</td>";
-                                              echo "</td>";
-                                            echo "</tr>";
-                                            $j++;
-                                            }
-                                            ?>
+                                            <?php
+                                            foreach($jenis_pengaduan as $pengaduan){
+                                             echo '<tr>';
+                                               echo '<td style="vertical-align:top">';
+                                               if($pengaduan->id_jenis_pengaduan==$detail->id_jenis_pengaduan){
+                                                 echo "<b><u>".$huruf[$j]."</u></b>";
+                                                  echo "<b><u>. </u></b>";
+                                               }else{
+                                                 echo $huruf[$j];
+                                                 echo ". ";
+                                               }
+
+                                               echo "</td>";
+                                               echo '<td style="vertical-align:top">';
+                                               if($pengaduan->id_jenis_pengaduan==$detail->id_jenis_pengaduan){
+                                                 echo "<b><u>".$pengaduan->nama_jenis_pengaduan."</u></b>";
+                                               }else{
+                                                 echo $pengaduan->nama_jenis_pengaduan;
+                                               }
+                                               echo "</td>";
+                                               echo "</td>";
+                                             echo "</tr>";
+                                             $j++;
+                                             }
+                                             ?>
                                           </table>
                                       </td>
 
@@ -386,47 +414,12 @@
                                   <br>
 
                               </div>
+
                               <br>
                               <br>
                               <p align="center">
-                                <?php if($detail->ktp==0){
-                                  echo "<button disabled class='btn btn-info disabled'>KTP</button>";
-                                }else{
-                                ?>
-                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">KTP</button></a>
-                                <?php
-                                }?>
-
-                                <?php if($detail->ktp==0){
-                                  echo "<button disabled class='btn btn-info disabled'>Bukti1</button>";
-                                }else{
-                                ?>
-                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti1</button></a>
-                                <?php
-                                }?>
-
-                                <?php if($detail->ktp==0){
-                                  echo "<button disabled class='btn btn-info disabled'>Bukti2</button>";
-                                }else{
-                                ?>
-                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti2</button></a>
-                                <?php
-                                }?>
-
-                                <?php if($detail->ktp==0){
-                                  echo "<button disabled class='btn btn-info disabled'>Bukti3</button>";
-                                }else{
-                                ?>
-                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti3</button></a>
-                                <?php
-                                }?>
-
-                              </p>
-                              <br>
-                              <br>
-                              <p align="center">
-                              <a href=""><button type="button" class="btn btn-danger">Hapus</button></a>
-                              <a href=""><button type="button" class="btn btn-warning">Perbaharui</button></a>
+                              <a href="<?php echo site_url(); ?>lapor/hapus/<?php echo $detail->id_pengaduan?>/<?php echo $detail->id_pengaduan?>" onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini ?')"><button type="button" class="btn btn-danger">Hapus</button></a>
+                              <a href="<?php echo site_url(); ?>lapor/update/<?php echo $detail->id_pengaduan?>"><button type="button" class="btn btn-warning">Perbaharui</button></a>
                               <a href="<?php echo site_url(); ?>lapor/cetak_lapor/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-primary">Cetak</button></a>
                             </p>
                           </div>

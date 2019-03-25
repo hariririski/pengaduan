@@ -16,6 +16,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
        		$this->load->view('Lapor',$data);
        	}
+         public function update()
+       	{
+          $data['jenis_pengaduan'] = $this->M_lapor->lihat();
+          $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
+       		$this->load->view('Update_lapor',$data);
+       	}
          public function data()
        	{
           $data['semua_pengaduan'] = $this->M_lapor->semua_pengaduan();
@@ -34,10 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
        		$this->load->view('Cetak_lapor',$data);
        	}
-         public function hapus()
-       	{
-       		$this->load->view('Lapor');
-       	}
+
 
         public function tambah(){
             $cek= $this->M_lapor->tambah();
@@ -45,6 +48,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               redirect('lapor/detail_lapor/'.$cek);
             }else{
             redirect('lapor/');
+       	    }
+        }
+        public function edit(){
+            $cek= $this->M_lapor->edit($this->uri->segment(3),$this->uri->segment(4));
+            if($cek>0){
+              redirect('lapor/detail_lapor/'.$this->uri->segment(3));
+            }else{
+            redirect('lapor/update/$this->uri->segment(3)');
+       	    }
+        }
+        public function hapus(){
+            $cek= $this->M_lapor->hapus($this->uri->segment(3),$this->uri->segment(4));
+            if($cek>0){
+              redirect('lapor/data');
+            }else{
+            redirect('lapor/detail_lapor/$this->uri->segment(3)');
        	    }
         }
 

@@ -38,12 +38,20 @@
                             <?php
                               $login=$this->session->userdata('login');
 
-                              if(($login[0]->level)==1){
+                              if(($login[0]->level)==1||($login[0]->level)==2){
                             ?>
                             <li><a href="#">Pengaduan</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo site_url(); ?>lapor/">Tambah Pengaduan</a></li>
                                     <li><a href="<?php echo site_url(); ?>lapor/data/">Data Pengaduan</a></li>
+                                    <?php
+                                      if(($login[0]->level)==2){
+                                    ?>
+                                    <li><a href="<?php echo site_url(); ?>lapor/data/">Laporan Waktu Tertentu</a></li>
+                                    <li><a href="<?php echo site_url(); ?>lapor/data/">Laporan Tahunan</a></li>
+                                    <?php
+                                        }
+                                    ?>
                                 </ul>
                             </li>
                             <?php }?>
@@ -65,7 +73,7 @@
                     <div class="login-btn">
                       <?php
 
-                        if(($login[0]->level)==1){
+                        if(($login[0]->level)==1||($login[0]->level)==2){
                       ?>
                       <a href="<?php echo site_url(); ?>login/logout" class="modal-view button" href="#" >Logout</a>
                     <?php }else{ ?>

@@ -94,11 +94,11 @@
                                         <div class="col-md-12">
                                             <div class="text-content-wrapper">
                                                 <div class="text-content slide-2 text-center">
-                                                    <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s" data-wow-delay="0s">One million success stories</h4>
-                                                    <h1 class="title1 wow flipInX text-white mb-16" data-wow-duration="1s" data-wow-delay="0s">Find Job Our Website</h1>
-                                                    <p class="sub-title wow lightSpeedIn hidden-xs" data-wow-duration="1s" data-wow-delay=".2s"> There are many variations of passages of Lorem Ipsum available, but the majority<br> have suffered alteration in some form, by injected humour, or randomised words<br> which don't look even slightly believable.</p>
+
+                                                    <h1 class="title1 wow flipInX text-white mb-16" data-wow-duration="1s" data-wow-delay="0s">Laporkan Masalah Anda</h1>
+                                                    <p class="sub-title wow lightSpeedIn hidden-xs" data-wow-duration="1s" data-wow-delay=".2s"> Kami Kantor Pertanahan KOta Banda Aceh Akan Menyelesaikan Masalah Anda<br> Semua Dilakukan Secara Transparann dan Cepat.</p>
                                                     <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="1s" data-wow-delay=".6s">
-                                                        <a class="button slider-btn" href="#">ABOUT US</a>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@
                                 <div class="img-icon">
                                     <img src="<?php echo site_url(); ?>assets/images/icons/wrk2.png" alt="">
                                 </div>
-                                <h5>Laporan Pengaduan Akan Diproses Dengan Cepat</h5>
+                                <h5>Laporan Pengaduan Anda Akan Diproses Dengan Cepat</h5>
 
                             </div>
                         </div>

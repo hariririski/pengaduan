@@ -83,52 +83,62 @@
             </div>
             <!--End of Breadcrumb Banner Area-->
                 <!--Start of Single Job Post Area-->
+                <?php
+                foreach($data_pengaduan as $detail){
+                ?>
                 <div class="single-job-post-area pt-130 pt-sm-60 pb-70 pb-sm-30">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 mr-auto ml-auto">
-                                <form action="<?php echo site_url(); ?>Lapor/tambah" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo site_url(); ?>Lapor/edit/<?php echo $detail->id_pengaduan;?>/<?php echo $detail->id_pelapor;?>" method="post" enctype="multipart/form-data">
                                     <div class="single-job-content">
                                         <div class="title"><span>Data Pelapor</span></div>
                                         <div class="single-job-form">
                                             <div class="single-info pb-14">
                                                 <label for="title" class="uppercase pull-left m-0">Nama Lengkap</label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="title" name="nama_lengkap" required placeholder="Masukkan Nama Lengkap" >
+                                                    <input type="text" id="title" name="nama_lengkap" required placeholder="Masukkan Nama Lengkap" value="<?php echo $detail->nama;?>">
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
                                                 <label for="desc" class="uppercase pull-left m-0">Alamat</label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="desc" name="alamat" required placeholder="Masukkan ALamat Tinggal">
+                                                    <input type="text" id="desc" name="alamat" required placeholder="Masukkan ALamat Tinggal"  value="<?php echo $detail->alamat;?>">
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
                                                 <label for="desc" class="uppercase pull-left m-0">Email</label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="desc" name="email"  placeholder="Masukkan Alamat Email">
+                                                    <input type="text" id="desc" name="email"  placeholder="Masukkan Alamat Email"  value="<?php echo $detail->email;?>">
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
                                                 <label for="location" class="uppercase pull-left m-0">Pekerjaan</label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="location" name="pekerjaan" required placeholder="Masukkan Pekerjaan">
+                                                    <input type="text" id="location" name="pekerjaan" required placeholder="Masukkan Pekerjaan"  value="<?php echo $detail->pekerjaan;?>">
                                                 </div>
                                             </div>
                                             <div class="single-info pb-14">
                                                 <label for="category" class="uppercase pull-left m-0">Nomor Telepon</label>
                                                 <div class="form-box fix">
-                                                    <input type="text" id="category" name="no_telepon" required placeholder="Masukkan Nomor Telepon/HP">
+                                                    <input type="text" id="category" name="no_telepon" required placeholder="Masukkan Nomor Telepon/HP"  value="<?php echo $detail->no_telepon;?>">
                                                 </div>
                                             </div>
 
                                         </div>
                                         <div class="title"><span>Pengaduan</span></div>
+                                        <div class="single-info pb-14">
+                                            <label for="category" class="uppercase pull-left m-0">Nomor</label>
+                                            <div class="form-box fix">
+                                                <input type="text" id="category" name="nomor"  placeholder="Nomor"  value="<?php echo $detail->nomor;?>">
+                                            </div>
+                                        </div>
+
                                         <div class="single-job-form">
                                             <div class="single-info mb-14 fix">
                                                 <label class="uppercase pull-left m-0">Uraian Pengaduan</label>
                                                 <div class="desc fix">
-                                                    <textarea name="uraian_pengaduan" class="fix textarea" cols="30" rows="10" placeholder="Please enter your job description"></textarea>
+                                                    <textarea name="uraian_pengaduan" class="fix textarea" cols="30" rows="10" placeholder="Please enter your job description"> <?php echo $detail->uraian;?></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,12 +147,13 @@
                                                 <label class="uppercase pull-left m-0">Jenis Pengaduan</label>
                                                 <div class="desc fix">
                                                   <select name="jenis_pengaduan" required>
-                                                    <option value="">Pilih Jenis Pengaduan</option>
+                                                    <option  value="<?php echo $detail->id_jenis_pengaduan;?>"> <?php echo $detail->nama_jenis_pengaduan;?></option>
                                                     <?php
                                                        foreach($jenis_pengaduan as $pengaduan){
+                                                         if($detail->id_jenis_pengaduan!=$pengaduan->id_jenis_pengaduan){
                                                      ?>
                                                      <option value="<?php echo $pengaduan->id_jenis_pengaduan; ?>"><?php echo $pengaduan->nama_jenis_pengaduan; ?></option>
-                                                     <?php } ?>
+                                                   <?php }} ?>
                                                 </select>
                                                 </div>
                                             </div>
@@ -150,7 +161,7 @@
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Tanggal</label>
                                             <div class="form-box fix">
-                                                <input type="date" id="category" name="tanggal" required value="<?php echo date("Y-m-d"); ?>">
+                                                <input type="date" id="category" name="tanggal" required  value="<?php echo $detail->tanggal_pengaduan;?>">
 
                                             </div>
                                         </div>
@@ -159,37 +170,37 @@
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 1</label>
                                             <div class="form-box fix">
-                                                <input type="text" id="category" name="nama_bukti1"  placeholder="Masukkan Nama Bukti 1">
+                                                <input type="text" id="category" name="nama_bukti1" placeholder="Masukkan Nama Bukti 1"  value="<?php echo $detail->nama_bukti1;?>">
                                             </div>
                                         </div>
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 2</label>
                                             <div class="form-box fix">
-                                                <input type="text" id="category" name="nama_bukti2"  placeholder="Masukkan Nama Bukti 2">
+                                                <input type="text" id="category" name="nama_bukti2" placeholder="Masukkan Nama Bukti 2"  value="<?php echo $detail->nama_bukti2;?>">
                                             </div>
                                         </div>
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 3</label>
                                             <div class="form-box fix">
-                                                <input type="text" id="category" name="nama_bukti3"  placeholder="Masukkan Nama Bukti 3">
+                                                <input type="text" id="category" name="nama_bukti3" placeholder="Masukkan Nama Bukti 3"  value="<?php echo $detail->nama_bukti3;?>">
                                             </div>
                                         </div>
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 4</label>
                                             <div class="form-box fix">
-                                                <input type="text" id="category" name="nama_bukti4"  placeholder="Masukkan Nama Bukti 4">
+                                                <input type="text" id="category" name="nama_bukti4" placeholder="Masukkan Nama Bukti 4"  value="<?php echo $detail->nama_bukti4;?>">
                                             </div>
                                         </div>
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 5</label>
                                             <div class="form-box fix">
-                                                <input type="text" id="category" name="nama_bukti5"  placeholder="Masukkan Nama Bukti 5">
+                                                <input type="text" id="category" name="nama_bukti5" placeholder="Masukkan Nama Bukti 5"  value="<?php echo $detail->nama_bukti5;?>">
                                             </div>
                                         </div>
 
 
                                             <div class="ml-160 mt-38">
-                                                <button type="submit" class="button button-large-box">Simpan</button>
+                                                <button type="submit" class="button button-large-box">Perbaharui</button>
                                             </div>
                                         </div>
                                     </div>
@@ -199,6 +210,7 @@
                     </div>
                 </div>
                 <!--End of Single Job Post Area-->
+              <?php }?>
             <?php echo $this->load->view('share/Footer', '', TRUE);?>
         </div>
         <!--End of Main Wrapper Area-->

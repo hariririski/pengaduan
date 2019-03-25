@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="form-pop-up-content ptb-60 pl-60 pr-60">
                         <div class="area-title text-center mb-43">
-                            <img src="<?php echo site_url(); ?>assets/images/atrbpn.png" alt="jobhere">
+                            <img width="100%"src="<?php echo site_url(); ?>assets/images/atrbpn.png" alt="jobhere">
                         </div>
                         <form method="post" action="<?php echo site_url(); ?>login/proses_login">
                             <div class="form-box">

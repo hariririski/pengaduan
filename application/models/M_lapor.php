@@ -18,6 +18,50 @@
         return $query->result();
       }
 
+      function edit($id,$id_pelapor){
+        $nama_lengkap = $this->input->post('nama_lengkap');
+        $alamat = $this->input->post('alamat');
+        $email = $this->input->post('email');
+        $pekerjaan = $this->input->post('pekerjaan');
+        $no_telepon = $this->input->post('no_telepon');
+        $uraian_pengaduan = $this->input->post('uraian_pengaduan');
+        $jenis_pengaduan = $this->input->post('jenis_pengaduan');
+        $tanggal = $this->input->post('tanggal');
+        $nomor = $this->input->post('nomor');
+        $nama_bukti1 = $this->input->post('nama_bukti1');
+        $nama_bukti2 = $this->input->post('nama_bukti2');
+        $nama_bukti3 = $this->input->post('nama_bukti3');
+        $nama_bukti4 = $this->input->post('nama_bukti4');
+        $nama_bukti5 = $this->input->post('nama_bukti5');
+
+       $data1 = array(
+           'nama'=>$nama_lengkap,
+           'alamat'=>$alamat,
+           'email'=>$email,
+           'pekerjaan'=>$pekerjaan,
+           'no_telepon'=>$no_telepon
+         );
+
+       $data2 = array(
+           'uraian'=>$uraian_pengaduan,
+           'nomor'=>$nomor,
+           'tanggal_pengaduan'=>$tanggal,
+           'jenis_pengaduan'=>$jenis_pengaduan,
+           'nama_bukti1'=>$nama_bukti1,
+           'nama_bukti2'=>$nama_bukti2,
+           'nama_bukti3'=>$nama_bukti3,
+           'nama_bukti4'=>$nama_bukti4,
+           'nama_bukti5'=>$nama_bukti5
+
+         );
+       $this->db->where('id_pelapor',$id_pelapor);
+       $cek1=$this->db->update('pelapor',$data1);
+
+       $this->db->where('id_pengaduan',$id);
+       $cek1=$this->db->update('data_pengaduan',$data2);
+       return $cek1;
+     }
+
       function tambah(){
           $nama_lengkap = $this->input->post('nama_lengkap');
           $alamat = $this->input->post('alamat');
@@ -30,26 +74,23 @@
           $nama_bukti1 = $this->input->post('nama_bukti1');
           $nama_bukti2 = $this->input->post('nama_bukti2');
           $nama_bukti3 = $this->input->post('nama_bukti3');
+          $nama_bukti4 = $this->input->post('nama_bukti4');
+          $nama_bukti5 = $this->input->post('nama_bukti5');
           $nomor=0;
           $id_pelapor = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
           $file_ktp=$this->random_name(20);
-          $ktp=$this->upload_ktp($file_ktp);
+          // $ktp=$this->upload_ktp($file_ktp);
+          //
+          // $file_bukti1=$this->random_name(20);
+          // $bukti1=$this->upload_bukti1($file_bukti1);
+          //
+          // $file_bukti2=$this->random_name(20);
+          // $bukti2=$this->upload_bukti2($file_bukti2);
+          //
+          // $file_bukti3=$this->random_name(20);
+          // $bukti3=$this->upload_bukti3($file_bukti3);
 
-          $file_bukti1=$this->random_name(20);
-          $bukti1=$this->upload_bukti1($file_bukti1);
 
-          $file_bukti2=$this->random_name(20);
-          $bukti2=$this->upload_bukti2($file_bukti2);
-
-          $file_bukti3=$this->random_name(20);
-          $bukti3=$this->upload_bukti3($file_bukti3);
-
-          $query=$this->db->query("SELECT MAX(nomor) as nomor_max from data_pengaduan");
-           $query->result();
-           foreach($query->result() as $max){
-             $nomor=$max->nomor_max;
-             $nomor++;
-           }
 
           $data = array(
               'nama'=>$nama_lengkap,
@@ -65,16 +106,14 @@
               'uraian'=>$uraian_pengaduan,
               'id_pengaduan'=>$id_pelapor.$nomor,
               'id_pelapor'=>$id_pelapor,
-              'nomor'=>$nomor,
               'tanggal_pengaduan'=>$tanggal,
               'jenis_pengaduan'=>$jenis_pengaduan,
               'nama_bukti1'=>$nama_bukti1,
               'nama_bukti2'=>$nama_bukti2,
               'nama_bukti3'=>$nama_bukti3,
-              'ktp'=>$ktp,
-              'bukti1'=>$bukti1,
-              'bukti2'=>$bukti2,
-              'bukti3'=>$bukti3,
+              'nama_bukti4'=>$nama_bukti4,
+              'nama_bukti5'=>$nama_bukti5
+
             );
           //print_r($data);
           $cek=$this->db->insert('data_pengaduan',$data);
@@ -82,6 +121,13 @@
           return $id_pengaduan;
       }
 
+      function hapus($id_pengaduan,$id_pelapor){
+        $query=$this->db->where('id_pengaduan', $id_pengaduan);
+        $cek=$this->db->delete('data_pengaduan');
+        $query=$this->db->where('id_pelapor', $id_pelapor);
+        $cek=$this->db->delete('pelapor');
+        return $cek;
+      }
       function upload_ktp($name){
           $config['upload_path']          = './assets/upload/';
           $config['allowed_types']        = 'gif|jpg|png';
