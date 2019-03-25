@@ -23,23 +23,6 @@
 
         }
         </style>
-        <style>
-        .garis{
-          table, td, th {
-            border: 1px solid black;
-          }
-
-          table {
-            border-collapse: collapse;
-            width: 100%;
-          }
-
-          th {
-            height: 50px;
-          }
-        }
-
-          </style>
         <script>
         window.print()
         </script>
