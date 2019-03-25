@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4">
-                <div style="padding: 15px 0;"><a href="<?php echo site_url(); ?>home"><img src="<?php echo site_url(); ?>assets/images/atrbpn.png" alt="Kantor Pertanahan Banda Aceh"></a></div>
+                <div style="padding: 15px 0; "><a  href="<?php echo site_url(); ?>home"><img style="width: 300px" src="<?php echo site_url(); ?>assets/images/atrbpn.png" alt="Kantor Pertanahan Banda Aceh"></a></div>
             </div>
             <div class="col-sm-6 col-lg-8">
                 <div class="pull-right header-menu">
@@ -59,7 +59,7 @@
                           <?php
                               }
                           ?>
-                            <li><a href="<?php echo site_url(); ?>/tentang">Tentang</a></li>
+
                         </ul>
                     </nav>
                     <div class="login-btn">

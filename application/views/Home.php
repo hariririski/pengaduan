@@ -50,6 +50,7 @@
 
         <!-- Modernizr JS -->
         <script src="<?php echo site_url(); ?>assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -60,137 +61,57 @@
         <div class="as-mainwrapper">
             <!--Header Area Start-->
             <?php echo $this->load->view('share/Menu', '', TRUE);?>
+            <!-- End of Header Area -->
+                <!--Start of Slider Area-->
+                <div class="slider-area">
+                    <div class="preview-2">
+                        <div id="nivoslider" class="slides">
+                            <img src="<?php echo site_url(); ?>assets/images/slider/1.1.png" alt="" title="#slider-1-caption1"/>
+                            <img src="<?php echo site_url(); ?>assets/images/slider/2.jpg" alt="" title="#slider-1-caption2"/>
+                        </div>
+                        <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
+                            <div class="banner-content slider-1">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-content-wrapper">
+                                                <div class="text-content text-center">
+                                                    <h2 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s" data-wow-delay="0s">Selamat Datang Di Aplikasi Layanan Pengaduan</h2>
+                                                    <h2 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="3s" data-wow-delay="0s">Kementerian Agraria Dan Tata Ruang / Badan Pertanahan Nasional</h2>
+                                                    <h2 class="title1 wow bounceInRight text-white mb-16" data-wow-duration="3s" data-wow-delay="1s">Kantor Pertanahan Kota Banda Aceh</h2>
 
-            <div class="fun-factor-area bg-1 text-center ptb-100 pt-sm-60 pb-sm-30">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-6">
-                            <div class="single-fun-factor">
-                                <h1><span class="counter">340</span> +</h1>
-                                <h3>Customers</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-3 col-6">
-                            <div class="single-fun-factor">
-                                <h1><span class="counter">450</span> +</h1>
-                                 <h3>members</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <div class="single-fun-factor">
-                                <h1><span class="counter">220</span></h1>
-                                <h3>Resume</h3>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6">
-                            <div class="single-fun-factor">
-                                <h1><span class="counter">299</span></h1>
-                                <h3>Company</h3>
+                        <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
+                            <div class="banner-content slider-2">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-content-wrapper">
+                                                <div class="text-content slide-2 text-center">
+                                                    <h4 class="title2 wow bounceInLeft text-white mb-16" data-wow-duration="3s" data-wow-delay="0s">One million success stories</h4>
+                                                    <h1 class="title1 wow flipInX text-white mb-16" data-wow-duration="1s" data-wow-delay="0s">Find Job Our Website</h1>
+                                                    <p class="sub-title wow lightSpeedIn hidden-xs" data-wow-duration="1s" data-wow-delay=".2s"> There are many variations of passages of Lorem Ipsum available, but the majority<br> have suffered alteration in some form, by injected humour, or randomised words<br> which don't look even slightly believable.</p>
+                                                    <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="1s" data-wow-delay=".6s">
+                                                        <a class="button slider-btn" href="#">ABOUT US</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!--End of Slider Area-->
+                <!-- Search Form Start -->
 
-
-            <div class="job-categroy-area ptb-130 ptb-sm-60">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="section-title text-center ">
-                                <h2>Job Category </h2>
-                                <p>Lorem ipsum dolor sit amet, contetur adipisil elit sed do</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="category-job-list-actiive owl-carousel">
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat1.png" alt="">
-                            </div>
-                            <h5>Hotel & Restaurant</h5>
-                            <h6>(16 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat2.png" alt="">
-                            </div>
-                            <h5>Travel & Agency </h5>
-                            <h6>(10 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat3.png" alt="">
-                            </div>
-                            <h5>Business & Finance</h5>
-                            <h6>(15 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat4.png" alt="">
-                            </div>
-                            <h5>Theme & Software</h5>
-                            <h6>(18 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat1.png" alt="">
-                            </div>
-                            <h5>Hotel & Restaurant</h5>
-                            <h6>(16 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat2.png" alt="">
-                            </div>
-                            <h5>Travel & Agency </h5>
-                            <h6>(10 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat3.png" alt="">
-                            </div>
-                            <h5>Business & Finance</h5>
-                            <h6>(15 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat4.png" alt="">
-                            </div>
-                            <h5>Theme & Software</h5>
-                            <h6>(18 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat1.png" alt="">
-                            </div>
-                            <h5>Hotel & Restaurant</h5>
-                            <h6>(16 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat2.png" alt="">
-                            </div>
-                            <h5>Travel & Agency </h5>
-                            <h6>(10 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat3.png" alt="">
-                            </div>
-                            <h5>Business & Finance</h5>
-                            <h6>(15 Jobs)</h6>
-                        </div>
-                        <div class="category-item">
-                            <div class="img-icon">
-                                <img src="<?php echo site_url(); ?>assets/images/icons/cat4.png" alt="">
-                            </div>
-                            <h5>Theme & Software</h5>
-                            <h6>(18 Jobs)</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="woring-area pt-130 pb-100 pt-sm-60 pb-sm-30">
@@ -199,8 +120,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="section-title text-center ">
-                                <h2>How It Works</h2>
-                                <p>Lorem ipsum dolor sit amet, contetur adipisil elit sed do</p>
+                                <h2>Bagaiman Cara Melaporkan Pengaduan</h2>
+
                             </div>
                         </div>
                     </div>
@@ -211,8 +132,8 @@
                                 <div class="img-icon">
                                     <img src="<?php echo site_url(); ?>assets/images/icons/wrk1.png" alt="">
                                 </div>
-                                <h5>Create An Account</h5>
-                                <p>Lorem ipsum dolor sit amet, contetur adipisil elit, sed do eiusmod tempor incididunt ut lab et dolore magna aliqua.</p>
+                                <h5>Laporkan Masalah Anda Di Kantor Pertanahan Banda Aceh</h5>
+
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -220,8 +141,8 @@
                                 <div class="img-icon">
                                     <img src="<?php echo site_url(); ?>assets/images/icons/wrk2.png" alt="">
                                 </div>
-                                <h5>Search Desired Job</h5>
-                                <p>Lorem ipsum dolor sit amet, contetur adipisil elit, sed do eiusmod tempor incididunt ut lab et dolore magna aliqua.</p>
+                                <h5>Laporan Pengaduan Akan Diproses Dengan Cepat</h5>
+
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -229,8 +150,8 @@
                                 <div class="img-icon">
                                     <img src="<?php echo site_url(); ?>assets/images/icons/wrk3.png" alt="">
                                 </div>
-                                <h5>Send Your Resume</h5>
-                                <p>Lorem ipsum dolor sit amet, contetur adipisil elit, sed do eiusmod tempor incididunt ut lab et dolore magna aliqua.</p>
+                                <h5>Memberikan Solusi Terbaik Terhadap Laporan Yang Diberikan</h5>
+
                             </div>
                         </div>
                     </div>
@@ -238,7 +159,7 @@
             </div>
 
             <?php echo $this->load->view('share/Footer', '', TRUE);?>
-    
+
         </div>
         <!--End of Main Wrapper Area-->
 
