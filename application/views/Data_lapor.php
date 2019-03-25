@@ -150,7 +150,7 @@
                                      <td><?php echo date('d F Y', strtotime($pengaduan->tanggal_pengaduan));  ?></td>
                                      <td><?php echo $pengaduan->nama; ?></td>
                                      <td><?php echo $pengaduan->nama_jenis_pengaduan; ?></td>
-                                     <td>....</td>
+                                     <td><?php if($pengaduan->status==0){echo"Sedang Diproses";}else{echo"Selesai";} ?></td>
                                      <td><a href="<?php echo site_url(); ?>lapor/detail_lapor/<?php echo $pengaduan->id_pengaduan; ?>"><button type="button" class="btn btn-primary">Detail</button></a></td>
                                  </tr>
                                  <?php } ?>
@@ -171,24 +171,7 @@
 
                           <br>
                           <br>
-                          keterangan :
-                          <table>
-                            <tr>
-                              <td>
-                                ...
-                              </td>
-                              <td>
-                                Sedang Di proses
-                              </td>
-                              <td>
-                                ...
-                              </td>
-                              <td>
-                                Selesai
-                              </td>
-                            </tr>
-                          </table>
-
+                        
 
                             </div>
                         </div>

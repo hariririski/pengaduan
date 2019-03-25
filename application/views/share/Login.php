@@ -12,14 +12,13 @@
                         <div class="area-title text-center mb-43">
                             <img src="<?php echo site_url(); ?>assets/images/atrbpn.png" alt="jobhere">
                         </div>
-                        <form method="post" action="#">
+                        <form method="post" action="<?php echo site_url(); ?>login/proses_login">
                             <div class="form-box">
-                                <input type="text" name="username" placeholder="Email" class="mb-14">
-                                <input type="password" name="pass" placeholder="Password">
+                                <input type="text" name="username" placeholder="username" class="mb-14">
+                                <input type="password" name="password" placeholder="Password">
                             </div>
                             <div class="fix ptb-30">
-                                <span class="remember pull-left"><input class="p-0 pull-left" type="checkbox">Remember Me</span>
-                                <span class="pull-right"><a href="#">Forget Password?</a></span>
+
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="text-uppercase">Login</button>

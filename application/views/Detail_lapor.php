@@ -136,7 +136,7 @@
                                     <tr>
                                       <td>NOMOR</td>
                                       <td>:</td>
-                                      <td><?php echo $detail->nomor;?></td>
+                                      <td></td>
                                     </tr>
                                     <tr>
                                       <td>TANGGAL</td>
@@ -289,7 +289,12 @@
                                         <td><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
                                       </tr>
                                       <tr>
-                                        <td>Namama</td>
+                                        <td>
+                                          <?php
+                                            $login=$this->session->userdata('login');
+                                            echo $login[0]->nama;
+                                          ?>
+                                        </td>
                                         <td><?php echo $detail->nama;?></td>
                                       </tr>
                                     </table>
@@ -384,17 +389,45 @@
                               <br>
                               <br>
                               <p align="center">
-                              <button type="button" class="btn btn-primary">KTP</button>
-                              <button type="button" class="btn btn-primary">Bukti 1</button>
-                              <button type="button" class="btn btn-primary">Bukti 2</button>
-                              <button type="button" class="btn btn-primary">Bukti 3</button>
+                                <?php if($detail->ktp==0){
+                                  echo "<button disabled class='btn btn-info disabled'>KTP</button>";
+                                }else{
+                                ?>
+                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">KTP</button></a>
+                                <?php
+                                }?>
+
+                                <?php if($detail->ktp==0){
+                                  echo "<button disabled class='btn btn-info disabled'>Bukti1</button>";
+                                }else{
+                                ?>
+                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti1</button></a>
+                                <?php
+                                }?>
+
+                                <?php if($detail->ktp==0){
+                                  echo "<button disabled class='btn btn-info disabled'>Bukti2</button>";
+                                }else{
+                                ?>
+                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti2</button></a>
+                                <?php
+                                }?>
+
+                                <?php if($detail->ktp==0){
+                                  echo "<button disabled class='btn btn-info disabled'>Bukti3</button>";
+                                }else{
+                                ?>
+                                  <a href="<?php echo site_url(); ?>lapor/cetak_ktp/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-success">Bukti3</button></a>
+                                <?php
+                                }?>
+
                               </p>
                               <br>
                               <br>
                               <p align="center">
-                              <button type="button" class="btn btn-danger">Hapus</button>
-                              <button type="button" class="btn btn-warning">Perbaharui</button>
-                              <button type="button" class="btn btn-primary">Cetak</button>
+                              <a href=""><button type="button" class="btn btn-danger">Hapus</button></a>
+                              <a href=""><button type="button" class="btn btn-warning">Perbaharui</button></a>
+                              <a href="<?php echo site_url(); ?>lapor/cetak_lapor/<?php echo $detail->id_pengaduan?>"><button  class="btn btn-primary">Cetak</button></a>
                             </p>
                           </div>
 

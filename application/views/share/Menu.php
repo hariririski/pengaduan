@@ -1,4 +1,14 @@
 <!--Header Area Start-->
+<?php ini_set('display_errors','off');?>
+<style>
+.header-top {
+    align-items: center;
+    background: #26ae61 none repeat scroll 0 0;
+    display: flex;
+    height: 15px;
+    transition: all 0.3s ease-in-out 0s;
+}
+</style>
 <header id="sticky-header" class="header-area">
     <!-- Header Top Start -->
     <div class="header-top">
@@ -6,16 +16,10 @@
             <div class="col-md-12">
                 <div class="header-top-list">
                     <ul class="top-contact-list">
-                        <li><a href="#">Call Us: 011 222 3333</a></li>
-                        <li><a href="#">Email: youremail@example.com</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
                     </ul>
-                    <div class="social-links">
-                        <a href="#"><i class="zmdi zmdi-facebook"></i></a>
-                        <a href="#"><i class="zmdi zmdi-rss"></i></a>
-                        <a href="#"><i class="zmdi zmdi-google-plus"></i></a>
-                        <a href="#"><i class="zmdi zmdi-pinterest"></i></a>
-                        <a href="#"><i class="zmdi zmdi-instagram"></i></a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -31,24 +35,42 @@
                     <nav id="primary-menu">
                         <ul class="main-menu text-right">
                             <li><a href="<?php echo site_url(); ?>home">Beranda</a></li>
-                            <li><a href="#">Laporan</a>
+                            <?php
+                              $login=$this->session->userdata('login');
+
+                              if(($login[0]->level)==1){
+                            ?>
+                            <li><a href="#">Pengaduan</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo site_url(); ?>lapor/">Tambah Pengaduan</a></li>
                                     <li><a href="<?php echo site_url(); ?>lapor/data/">Data Pengaduan</a></li>
                                 </ul>
                             </li>
+                            <?php }?>
+                          <?php
+                            if(($login[0]->level)==2){
+                          ?>
                             <li><a href="#">Setting</a>
                                 <ul class="dropdown">
                                     <li><a href="<?php echo site_url(); ?>jenis_pengaduan">Tambah Jenis Pengaduan</a></li>
                                     <li><a href="<?php echo site_url(); ?>admin">Tambah Admin</a></li>
                                 </ul>
                             </li>
+                          <?php
+                              }
+                          ?>
                             <li><a href="<?php echo site_url(); ?>/tentang">Tentang</a></li>
                         </ul>
                     </nav>
                     <div class="login-btn">
-                        <!-- <a class="modal-view button" href="#" data-toggle="modal" data-target="#register">Register</a> -->
+                      <?php
+
+                        if(($login[0]->level)==1){
+                      ?>
+                      <a href="<?php echo site_url(); ?>login/logout" class="modal-view button" href="#" >Logout</a>
+                    <?php }else{ ?>
                         <a class="modal-view button" href="#" data-toggle="modal" data-target="#productModal">Login</a>
+                    <?php }?>
                     </div>
                 </div>
             </div>

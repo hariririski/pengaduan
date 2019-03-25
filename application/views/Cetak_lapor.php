@@ -24,7 +24,7 @@
         }
         </style>
         <script>
-        window.print()
+        //window.print()
         </script>
 
     </head>
@@ -50,7 +50,7 @@
                                     <tr>
                                       <td>NOMOR</td>
                                       <td>:</td>
-                                      <td><?php echo $detail->nomor;?></td>
+                                      <td></td>
                                     </tr>
                                     <tr>
                                       <td>TANGGAL</td>
@@ -203,7 +203,11 @@
                                         <td><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
                                       </tr>
                                       <tr>
-                                        <td>Namama</td>
+                                        <td>
+                                        <?php
+                                          $login=$this->session->userdata('login');
+                                          echo $login[0]->nama;
+                                        ?></td>
                                         <td><?php echo $detail->nama;?></td>
                                       </tr>
                                     </table>
@@ -218,7 +222,7 @@
                                   <br>
                                   <br>
                                   <br>
-                                  <table height="150px" width="100%"  style="border: 1px solid black" align="center">
+                                  <table height="150px" width="100%" border="1" style="border: 1px solid black" align="center">
                                     <tr>
                                       <td align="Center" width="55%"  style="border: 1px solid black" >Jenis Pengaduan</td>
                                       <td align="Center">Penanganan</td>

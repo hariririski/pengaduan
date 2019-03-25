@@ -7,7 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->helper('url');
   			 $this->load->library('session');
   			 $this->load->database();
-  			 }
+         
+  		}
 
 
          public function index()
