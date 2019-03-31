@@ -37,9 +37,7 @@
         <div class="as-mainwrapper">
 
 
-            <?php
-            foreach($data_pengaduan as $detail){
-            ?>
+
             <!--End of Breadcrumb Banner Area-->
                 <!--Start of Single Job Post Area-->
                 <div class="single-job-post-area pt-130 pt-sm-60 pb-70 pb-sm-30">
@@ -57,6 +55,22 @@
                               <td align="center" > Uraian Pengaduan </td>
                               <td align="center" > Tindak Lanjut </td>
                             </tr>
+                            <?php
+                            $no=0;
+                            foreach($data_pengaduan as $detail){
+                            $no++;
+                            ?>
+                            <tr>
+                              <td align="center" ><?php echo $no;?></td>
+                              <td align="center" ><?php echo $detail->nomor;?>/<?php echo $detail->tanggal_pengaduan;?> </td>
+                              <td align="center" > <?php echo $detail->nama;?></td>
+                              <td align="center" ><?php echo $detail->nama_jenis_pengaduan;?> </td>
+                              <td align="center" > Bukti Pengaduan </td>
+                              <td align="center" ><?php echo $detail->uraian;?> </td>
+                              <td align="center" > <?php echo $detail->tindak_lanjut;?> </td>
+                            </tr>
+
+                            <?php } ?>
                           </table>
 
                           <?php
@@ -94,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-          <?php } ?>
+
                 <!--End of Single Job Post Area-->
 
         </div>

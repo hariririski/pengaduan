@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          public function cetak_laporan_pengaduan()
        	{
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
-          $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
+          $data['data_pengaduan'] = $this->M_lapor->laporan($this->uri->segment(3),$this->uri->segment(4));
           $data['data_setting'] = $this->M_lapor->setting();
        		$this->load->view('Cetak_laporan_pengaduan',$data);
        	}
