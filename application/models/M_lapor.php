@@ -13,6 +13,10 @@
         $query=$this->db->query("SELECT * FROM `data_pengaduan` LEFT join pelapor on data_pengaduan.id_pelapor=pelapor.id_pelapor left join jenis_pengaduan on jenis_pengaduan.id_jenis_pengaduan=data_pengaduan.jenis_pengaduan WHERE data_pengaduan.id_pengaduan='$id'");
         return $query->result();
       }
+      function setting(){
+        $query=$this->db->query("SELECT * from `setting`");
+        return $query->result();
+      }
       function max(){
         $query=$this->db->query("SELECT MAX(nomor) from data_pengaduan");
         return $query->result();
@@ -28,6 +32,13 @@
         $jenis_pengaduan = $this->input->post('jenis_pengaduan');
         $tanggal = $this->input->post('tanggal');
         $nomor = $this->input->post('nomor');
+        $penyelesaian = $this->input->post('penyelesaian');
+        $status=1;
+        if(empty($penyelesaian)){
+          $penyelesaian=null;
+          $status=0;
+        }
+
         $nama_bukti1 = $this->input->post('nama_bukti1');
         $nama_bukti2 = $this->input->post('nama_bukti2');
         $nama_bukti3 = $this->input->post('nama_bukti3');
@@ -45,6 +56,8 @@
        $data2 = array(
            'uraian'=>$uraian_pengaduan,
            'nomor'=>$nomor,
+           'status'=>$status,
+           'tindak_lanjut'=>$penyelesaian,
            'tanggal_pengaduan'=>$tanggal,
            'jenis_pengaduan'=>$jenis_pengaduan,
            'nama_bukti1'=>$nama_bukti1,
@@ -57,6 +70,21 @@
        $this->db->where('id_pelapor',$id_pelapor);
        $cek1=$this->db->update('pelapor',$data1);
 
+       $this->db->where('id_pengaduan',$id);
+       $cek1=$this->db->update('data_pengaduan',$data2);
+       return $cek1;
+     }
+
+      function penyelesaian($id){
+        $penyelesaian = $this->input->post('penyelesaian');
+        $status = 1;
+
+       $data2 = array(
+           'tindak_lanjut'=>$penyelesaian,
+           'status'=>$status
+
+
+         );
        $this->db->where('id_pengaduan',$id);
        $cek1=$this->db->update('data_pengaduan',$data2);
        return $cek1;
@@ -101,9 +129,16 @@
               'no_telepon'=>$no_telepon
             );
             $cek=$this->db->insert('pelapor',$data);
-
+            $nomor=0;
+            $query=$this->db->query("SELECT MAX(nomor) as nomor_max from data_pengaduan");
+           $query->result();
+           foreach($query->result() as $max){
+             $nomor=$max->nomor_max;
+             $nomor++;
+           }
           $data = array(
               'uraian'=>$uraian_pengaduan,
+              'nomor'=>$nomor,
               'id_pengaduan'=>$id_pelapor.$nomor,
               'id_pelapor'=>$id_pelapor,
               'tanggal_pengaduan'=>$tanggal,

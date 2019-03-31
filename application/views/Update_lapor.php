@@ -165,7 +165,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="title"><span></span></div>
+
                                         <div class="title"><span> Bukti Pengaduan</span></div>
                                         <div class="single-info pb-14">
                                             <label for="category" class="uppercase pull-left m-0">Bukti 1</label>
@@ -197,7 +197,15 @@
                                                 <input type="text" id="category" name="nama_bukti5" placeholder="Masukkan Nama Bukti 5"  value="<?php echo $detail->nama_bukti5;?>">
                                             </div>
                                         </div>
-
+                                        <div class="title"><span> Bukti Pengaduan</span></div>
+                                        <div class="single-job-form">
+                                            <div class="single-info mb-14 fix">
+                                                <label class="uppercase pull-left m-0">Uraian Pengaduan</label>
+                                                <div class="desc fix">
+                                                    <textarea name="penyelesaian" class="fix textarea" cols="30" rows="10" placeholder=""> <?php echo $detail->tindak_lanjut;?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                             <div class="ml-160 mt-38">
                                                 <button type="submit" class="button button-large-box">Perbaharui</button>

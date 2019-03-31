@@ -53,7 +53,7 @@
                                     <tr>
                                       <td>NOMOR</td>
                                       <td>:</td>
-                                      <td></td>
+                                      <td><?php echo $detail->nomor;?></td>
                                     </tr>
                                     <tr>
                                       <td>TANGGAL</td>
@@ -85,31 +85,31 @@
                                   <table  width="100%">
                                     <tr>
                                       <td width="10px">&nbsp;</td>
-                                      <td width="10px">a.</td>
-                                      <td width="34%">Nama</td>
-                                      <td  width="10px">:</td>
-                                      <td><?php echo $detail->nama;?></td>
+                                      <td width="10px" style="vertical-align:top" >a.</td>
+                                      <td width="34%" style="vertical-align:top" >Nama</td>
+                                      <td  width="10px" style="vertical-align:top" >:</td>
+                                      <td style="vertical-align:top" ><?php echo $detail->nama;?></td>
                                     </tr>
                                     <tr>
                                       <td>&nbsp;</td>
-                                      <td>b.</td>
-                                      <td>Alamat atau alamat email</td>
-                                      <td>:</td>
-                                      <td><?php echo $detail->alamat;?></td>
+                                      <td style="vertical-align:top" >b.</td>
+                                      <td style="vertical-align:top" >Alamat atau alamat email</td>
+                                      <td style="vertical-align:top" >:</td>
+                                      <td style="vertical-align:top" ><?php echo $detail->alamat;?></td>
                                     </tr>
                                     <tr>
                                       <td>&nbsp;</td>
-                                      <td>c.</td>
-                                      <td>Pekerjaan</td>
-                                      <td>:</td>
-                                      <td><?php echo $detail->pekerjaan;?></td>
+                                      <td style="vertical-align:top" >c.</td>
+                                      <td style="vertical-align:top" >Pekerjaan</td>
+                                      <td style="vertical-align:top" >:</td>
+                                      <td style="vertical-align:top" ><?php echo $detail->pekerjaan;?></td>
                                     </tr>
                                     <tr>
                                       <td>&nbsp;</td>
-                                      <td>b.</td>
-                                      <td>Nomor Telepon</td>
-                                      <td>:</td>
-                                      <td><?php echo $detail->no_telepon;?></td>
+                                      <td style="vertical-align:top" >b.</td>
+                                      <td style="vertical-align:top" >Nomor Telepon</td>
+                                      <td style="vertical-align:top" >:</td>
+                                      <td style="vertical-align:top" ><?php echo $detail->no_telepon;?></td>
                                     </tr>
 
                                   </table>
@@ -228,6 +228,11 @@
                                         <td><?php echo $detail->nama;?></td>
                                       </tr>
                                     </table>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    **) Melampirkan salinan identitas diri (SIM/KTP/Paspor)
 
                               </div>
                           </div>
