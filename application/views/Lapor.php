@@ -128,7 +128,7 @@
                                             <div class="single-info mb-14 fix">
                                                 <label class="uppercase pull-left m-0">Uraian Pengaduan</label>
                                                 <div class="desc fix">
-                                                    <textarea name="uraian_pengaduan" class="fix textarea" cols="30" rows="10" placeholder="Please enter your job description"></textarea>
+                                                    <textarea name="uraian_pengaduan" class="fix textarea" cols="30" rows="10" placeholder="Masukkan Uraian Pengaduan"></textarea>
                                                 </div>
                                             </div>
                                         </div>
