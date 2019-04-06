@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   			 $this->load->library('session');
   			 $this->load->database();
          $this->load->model('M_lapor');
+         $this->load->model('M_bidang');
          $login=$this->session->userdata('login');
   			 }
 
@@ -19,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          public function update()
        	{
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
+          $data['bidang'] = $this->M_bidang->lihat();
           $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
        		$this->load->view('Update_lapor',$data);
        	}
@@ -31,6 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        	{
 
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
+          $data['bidang'] = $this->M_bidang->lihat();
           $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
        		$this->load->view('Detail_lapor',$data);
        	}

@@ -10,7 +10,7 @@
         return $query->result();
       }
       function detail_pengaduan($id){
-        $query=$this->db->query("SELECT * FROM `data_pengaduan` LEFT join pelapor on data_pengaduan.id_pelapor=pelapor.id_pelapor left join jenis_pengaduan on jenis_pengaduan.id_jenis_pengaduan=data_pengaduan.jenis_pengaduan WHERE data_pengaduan.id_pengaduan='$id'");
+        $query=$this->db->query("SELECT * FROM `data_pengaduan` LEFT join pelapor on data_pengaduan.id_pelapor=pelapor.id_pelapor left join jenis_pengaduan on jenis_pengaduan.id_jenis_pengaduan=data_pengaduan.jenis_pengaduan left join bidang on bidang.id_bidang=data_pengaduan.id_bidang WHERE data_pengaduan.id_pengaduan='$id'");
         return $query->result();
       }
       function laporan($tgl1,$tgl2){
@@ -81,10 +81,12 @@
 
       function penyelesaian($id){
         $penyelesaian = $this->input->post('penyelesaian');
+        $bidang = $this->input->post('bidang');
         $status = 1;
 
        $data2 = array(
            'tindak_lanjut'=>$penyelesaian,
+           'id_bidang'=>$bidang,
            'status'=>$status
 
 
@@ -108,6 +110,8 @@
           $nama_bukti3 = $this->input->post('nama_bukti3');
           $nama_bukti4 = $this->input->post('nama_bukti4');
           $nama_bukti5 = $this->input->post('nama_bukti5');
+          $login=$this->session->userdata('login');
+          $penerima=$login[0]->nama;
           $nomor=0;
           $id_pelapor = mktime(date("H"),date("i"),date("s"),date("m"),date("d"),date("Y"));
           $file_ktp=$this->random_name(20);
@@ -147,6 +151,7 @@
               'id_pelapor'=>$id_pelapor,
               'tanggal_pengaduan'=>$tanggal,
               'jenis_pengaduan'=>$jenis_pengaduan,
+              'penerima'=>$penerima,
               'nama_bukti1'=>$nama_bukti1,
               'nama_bukti2'=>$nama_bukti2,
               'nama_bukti3'=>$nama_bukti3,

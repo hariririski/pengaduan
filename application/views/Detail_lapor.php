@@ -308,10 +308,7 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                          <?php
-                                            $login=$this->session->userdata('login');
-                                            echo $login[0]->nama;
-                                          ?>
+                                          <?php echo $detail->penerima;?>
                                         </td>
                                         <td><?php echo $detail->nama;?></td>
                                       </tr>
@@ -380,7 +377,13 @@
                                           </table>
                                       </td>
 
-                                        <td style="vertical-align:top;">Kantor Pertanahan Kota Banda Aceh <br> Seksi </td>
+                                        <td style="vertical-align:top;">Kantor Pertanahan Kota Banda Aceh <br> Seksi
+                                        <?php
+                                         if($detail->id_bidang!==null|| $detail->id_bidang!==0){
+                                           echo $detail->nama_bidang;
+                                         }
+                                        ?>
+                                        </td>
 
                                     </tr>
                                   </table>
@@ -440,6 +443,21 @@
                             <br>
                             <br>
                             <form action="<?php echo site_url(); ?>Lapor/penyelesaian/<?php echo $detail->id_pengaduan?>" method="post" enctype="multipart/form-data">
+                              <div class="single-job-form">
+                                  <div class="single-info mb-14 fix">
+                                      <label class="uppercase pull-left m-0">Bidang </label>
+                                      <div class="desc fix">
+                                        <select name="bidang" required>
+                                          <option value="">Pilih Bidang</option>
+                                          <?php
+                                             foreach($bidang as $data_bidang){
+                                           ?>
+                                           <option value="<?php echo $data_bidang->id_bidang; ?>"><?php echo $data_bidang->nama_bidang; ?></option>
+                                           <?php } ?>
+                                      </select>
+                                      </div>
+                                  </div>
+                              </div>
                               <div class="single-job-form">
 
                                   <div class="single-info mb-14 fix">

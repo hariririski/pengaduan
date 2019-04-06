@@ -200,7 +200,22 @@
                                         <div class="title"><span> Bukti Pengaduan</span></div>
                                         <div class="single-job-form">
                                             <div class="single-info mb-14 fix">
-                                                <label class="uppercase pull-left m-0">Uraian Pengaduan</label>
+                                                <label class="uppercase pull-left m-0">Bidang </label>
+                                                <div class="desc fix">
+                                                  <select name="bidang" required>
+                                                    <option value="">Pilih Bidang</option>
+                                                    <?php
+                                                       foreach($bidang as $data_bidang){
+                                                     ?>
+                                                     <option value="<?php echo $data_bidang->id_bidang; ?>"><?php echo $data_bidang->nama_bidang; ?></option>
+                                                     <?php } ?>
+                                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="single-job-form">
+                                            <div class="single-info mb-14 fix">
+                                                <label class="uppercase pull-left m-0">Uraian Penyelesaian</label>
                                                 <div class="desc fix">
                                                     <textarea name="penyelesaian" class="fix textarea" cols="30" rows="10" placeholder=""> <?php echo $detail->tindak_lanjut;?></textarea>
                                                 </div>

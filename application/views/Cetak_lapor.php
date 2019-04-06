@@ -221,10 +221,8 @@
                                       </tr>
                                       <tr>
                                         <td>
-                                        <?php
-                                          $login=$this->session->userdata('login');
-                                          echo $login[0]->nama;
-                                        ?></td>
+                                        <?php echo $detail->penerima;?>
+                                      </td>
                                         <td><?php echo $detail->nama;?></td>
                                       </tr>
                                     </table>
@@ -292,6 +290,11 @@
                                       </td>
 
                                         <td style="vertical-align:top;">Kantor Pertanahan Kota Banda Aceh <br> Seksi
+                                          <?php
+                                           if($detail->id_bidang!==null|| $detail->id_bidang!==0){
+                                             echo $detail->nama_bidang;
+                                           }
+                                          ?>
                                           <BR>
                                           <BR>
                                           <BR>
