@@ -35,15 +35,15 @@ class Login extends CI_Controller {
 	{
 		if( empty($admin)==0 ){
 
-		 redirect("home");
+		 redirect("Pc");
 		}
-		$this->load->view('login');
+		$this->load->view('Pc/login');
 	}
 
 	public function logout() {
 		$this->session->unset_userdata('login');
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('Pc');
 	}
 
 	public function proses_login() {
@@ -55,13 +55,13 @@ class Login extends CI_Controller {
         echo"<script>alert('Maaf Anda Gagal Login')</script>";
         redirect('login/logout');
       }else {
-        redirect('home');
+        redirect('Pc');
       }
 
 
 		}else{
       echo"<scrip>alert('Anda Gagal Login')</script>";
-			redirect('home');
+			redirect('Pc');
 		}
 	}
 

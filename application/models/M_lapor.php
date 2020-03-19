@@ -165,6 +165,8 @@
           return $id_pengaduan;
       }
 
+      
+
       function hapus($id_pengaduan,$id_pelapor){
         $query=$this->db->where('id_pengaduan', $id_pengaduan);
         $cek=$this->db->delete('data_pengaduan');

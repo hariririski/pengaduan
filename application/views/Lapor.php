@@ -87,7 +87,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 mr-auto ml-auto">
-                                <form action="<?php echo site_url(); ?>Lapor/tambah" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo site_url(); ?>Lapor_hp/tambah" method="post" enctype="multipart/form-data">
                                     <div class="single-job-content">
                                         <div class="title"><span>Data Pelapor</span></div>
                                         <div class="single-job-form">

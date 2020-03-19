@@ -40,10 +40,10 @@
 
             <!--End of Breadcrumb Banner Area-->
                 <!--Start of Single Job Post Area-->
-                <div class="single-job-post-area pt-130 pt-sm-60 pb-70 pb-sm-30">
+                <div class="single-job-post-area pt-100 pt-sm-60 pb-70 pb-sm-30">
                   <div class="container  ">
                         <div class="row">
-                          <img src="<?php echo site_url(); ?>assets/kop2.png" width="100%">
+                          <img src="<?php echo site_url(); ?>assets/kop2.png" width="80%">
                           <p align="center">LAPORAN PENANGANAN PENGADUAN</p>
                           <table border="1" width="100%">
                             <tr>

@@ -27,15 +27,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          public function data()
        	{
           $data['semua_pengaduan'] = $this->M_lapor->semua_pengaduan();
-       		$this->load->view('Data_lapor',$data);
+       		$this->load->view('Pc/Data_pengaduan',$data);
        	}
-         public function detail_lapor()
+         public function detail_pengaduan()
        	{
-
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
           $data['bidang'] = $this->M_bidang->lihat();
           $data['data_pengaduan'] = $this->M_lapor->detail_pengaduan($this->uri->segment(3));
-       		$this->load->view('Detail_lapor',$data);
+       		$this->load->view('Pc/Detail_pengaduan',$data);
        	}
          public function cetak_lapor()
        	{
@@ -47,6 +46,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        	{
           $data['jenis_pengaduan'] = $this->M_lapor->lihat();
           $data['data_pengaduan'] = $this->M_lapor->laporan($this->uri->segment(3),$this->uri->segment(4));
+          echo ($this->uri->segment(3));
+          echo ($this->uri->segment(4));
           $data['data_setting'] = $this->M_lapor->setting();
        		$this->load->view('Cetak_laporan_pengaduan',$data);
        	}
@@ -60,6 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             redirect('lapor/');
        	    }
         }
+
+        public function tambah_hp(){
+            $cek= $this->M_lapor->tambah_hp();
+            if($cek>0){
+              redirect('lapor/detail_lapor/'.$cek);
+            }else{
+            redirect('lapor/');
+       	    }
+        }
+
         public function edit(){
             $cek= $this->M_lapor->edit($this->uri->segment(3),$this->uri->segment(4));
             if($cek>0){
